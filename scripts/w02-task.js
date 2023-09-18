@@ -7,10 +7,8 @@ let fullName = 'Mahonri Jonathan L. Savedia';
 let currentYear = '2023'
 let profilePicture = 'images/myPicture.JPG'
 
-
-
 /* Step 3 - Element Variables */
-
+const nameElement = document.getElementById();
 
 
 
