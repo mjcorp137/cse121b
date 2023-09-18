@@ -3,7 +3,9 @@
 /* Step 1 - Setup type tasks - no code required */
 
 /* Step 2 - Variables */
-
+let fullName = 'Mahonri Jonathan L. Savedia';
+let currentYear = '2023'
+let profilePicture = 'images/myPicture.JPG'
 
 
 
