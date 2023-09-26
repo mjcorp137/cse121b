@@ -44,7 +44,6 @@ function divideNumbers(){
     
 }
 document.querySelector('#divideNumbers').addEventListener('click', divideNumbers);
-
 /* Decision Structure */
 
 
