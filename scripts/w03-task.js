@@ -45,17 +45,31 @@ function divideNumbers(){
 }
 document.querySelector('#divideNumbers').addEventListener('click', divideNumbers);
 /* Decision Structure */
+var currentDate = '';
+var currentYear = new Date();
+currentYear.getFullYear(currentDate);
 
-
+document.getElementById('year').innerHTML = currentYear;
 /* ARRAY METHODS - Functional Programming */
+let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+
 /* Output Source Array */
+document.getElementById('array').innerHTML = numbersArray;
 
 /* Output Odds Only Array */
+//let odds = numbersArray.filter((num)=> num % 2 === 1);
+//document.getElementById('odds').innerHTML = odds;
 
+document.querySelector('#odds').innerHTML = numbersArray.filter(number => number % 2 === 1);
 /* Output Evens Only Array */
 
+document.querySelector('#evens').innerHTML = numbersArray.filter(number => number % 2 === 0);
+
 /* Output Sum of Org. Array */
-
+const sumArray = numbersArray.reduce((sum, number) => sum + number)
+document.getElementById('sumOfArray').innerHTML = sumArray;
 /* Output Multiplied by 2 Array */
-
+const multiplyArray = numbersArray.map(number => number * 2);
+document.getElementById('multiplied').innerHTML = multiplyArray;
 /* Output Sum of Multiplied by 2 Array */
+const sumMulArray = multiplyArray.reduce((sum, number) => sum + number);document.getElementById('sumOfMultiplied').innerHTML = sumMulArray;
