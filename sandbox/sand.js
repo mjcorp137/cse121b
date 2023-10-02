@@ -2,22 +2,22 @@
 
 /* Profile Object  */
 let myProfile = {
-    name: "Mahonri Jonathan L. Savedia",
+    name: "Victor Jared Onato",
 
-    photo: "images/myPicture.JPG",
+    photo: "images/jared.jpg",
 
     favoriteFoods : [
         "Ice Cream", 
-        "Fried Chicken", 
-        "Adobo", 
+        "Baked Sushi", 
+        "Grilled Chicken", 
         "Korean Barbeque", 
         "Fried Rice"
     ],
 
     hobbies : [
-        "Judo",
-        "Playing Online Pc Games",
-        "Reading books"
+        "Reading Books",
+        "Playing Mobile Games",
+        "Writing Short Stories"
 
     ],
 
@@ -28,6 +28,8 @@ let myProfile = {
 
 
 
+
+
 /* Populate Profile Object with placesLive objects */
 myProfile.placesLived.push({
     place: "Negros Occidental",
@@ -35,23 +37,26 @@ myProfile.placesLived.push({
     });
 
 myProfile.placesLived.push({
-    place: "Cagayan de Oro City, Misamis Oriental",
-    length: "10 years"
+    place: "Baguio City, Benguet",
+    length: "9 years"
 });
 
 myProfile.placesLived.push({
-    place: "Lucena City, Brgy. Cotta",
-    length: "13 years"
+    place: "Tagudin, Ilocos Sur",
+    length: "16 years"
 });
+
 
 
 /* DOM Manipulation - Output */
 
 /* Name */
 document.querySelector('#name').textContent = myProfile.name;
+
+
 /* Photo with attributes */
 document.querySelector('#photo').setAttribute("src",`${myProfile.photo}`);
-document.querySelector('#photo').setAttribute("alt", `${myProfile.name}`);
+document.querySelector('#photo').setAttribute("alt", ${myProfile.name});
 
 /* Favorite Foods List*/
 myProfile.favoriteFoods.forEach(food => {
@@ -66,6 +71,7 @@ myProfile.hobbies.forEach(hobby => {
     li.textContent = hobby;
     document.querySelector('#hobbies').appendChild(li);
 });
+
 
 /* Places Lived DataList */
 myProfile.placesLived.forEach(places => {
