@@ -29,7 +29,7 @@ const getTemples = async () => {
         "https://byui-cse.github.io/cse121b-ww-course/resources/temples.json"
         );
 
-        templeList = response.json();
+        templeList = await response.json();
         displayTemples(templeList);
   };
 
