@@ -10,37 +10,33 @@ const displayTemples = (temples) =>{
     temples.forEach(temple => {
         let article = document.createElement("article");
 
-        let templeName = document.createElement("h3");
-        templeName.textContent = temple.templeName;
+        let h3 = document.createElement("h3");
+        h3.textContent = temple.templeName;
 
         let img = document.createElement("img");
         img.setAttribute("src", temple.imageUrl);
         img.setAttribute("alt", temple.location);
 
         article.appendChild(img);
-        article.appendChild(templeName);
+        article.appendChild(h3);
         templesElement.appendChild(article);
     });
 }
 
 /* async getTemples Function using fetch()*/
-// const getTemples = async () => {
-//     const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
-
-//     templeList = await response.json();
-//     output(templeList);
-//   };
-//   getTemples();
 const getTemples = async () => {
-    const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
-    templeList = response.json();
+    const response = await fetch(
+        "https://byui-cse.github.io/cse121b-ww-course/resources/temples.json"
+        );
 
-    displayTemples(templeList);
-
-}
+    templeList = await response.json();
+    output(templeList);
+  };
 
 /* reset Function */
-
+const reset = () => {
+    document.querySelector("#temples").innerHTML = "";
+  };
 
 /* sortBy Function */
 
