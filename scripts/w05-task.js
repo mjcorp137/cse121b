@@ -1,8 +1,7 @@
 /* W05: Programming Tasks */
 
 /* Declare and initialize global variables */
-const templesElement = document.getElementById('temples');
-
+const templesElement = document.querySelector("div")
 var templeList = [];
 
 /* async displayTemples Function */
@@ -23,50 +22,58 @@ const displayTemples = (temples) =>{
     });
 }
 
+
 /* async getTemples Function using fetch()*/
 const getTemples = async () => {
-    const response = await fetch(
-        "https://byui-cse.github.io/cse121b-ww-course/resources/temples.json"
-        );
+    const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
+    templeList = await response.json();
 
-        templeList = await response.json();
-        displayTemples(templeList);
-  };
+    displayTemples(templeList);
+
+}
+
 
 /* reset Function */
-const reset = () => {
-    document.querySelector("#temples").innerHTML = "";
-    
-  };
+function reset() {
+    document.querySelector("div").innerHTML = "";
+}
 
 /* sortBy Function */
 function sortBy (temples) {
-    
     reset();
-
     let filter = document.querySelector("#sortBy").value;
     switch(filter){
         case "utah":
-            const utahTemples = temples.filter((temple) =>
+            displayTemples(temples.filter((temple) =>
                 temple.location.toLowerCase().includes('utah')
-            );
+            ));
             
-            displayTemples(utahTemples);
-            //displayTemples(temples.filter(temple => temple.location.match("Utah") == "Utah"));
+            
+
             break;
+
         case "notutah":
-            const noUtahTemples = temples.filter((temple) =>
-                temple.location.toLowerCase().includes ('nigeria')
-            );
-            
-            displayTemples(noUtahTemples);
+            displayTemples(temples.filter((temple) => !temple.location.toLowerCase().includes('utah')));
+               
+            break;
+        
         case "older":
-            displayTemples(temples.filter(temple => temple.dedicated))
+            let date = new Date(1950, 0, 1);
+
+            displayTemples(temples.filter((temple) => (temple.dedicated.split(", ")[0]) < date.getFullYear()));
+            
+           
             break;
         case "all":
-            getTemples(); 
-            break;
-    }   
+            displayTemples(temples);
+            
+
+
+
+
+       
+    }
+
 }
 
 document.querySelector("#sortBy").addEventListener("change", () => { sortBy(templeList) });
