@@ -29,8 +29,8 @@ const getTemples = async () => {
         "https://byui-cse.github.io/cse121b-ww-course/resources/temples.json"
         );
 
-    templeList = await response.json();
-    output(templeList);
+        templeList = response.json();
+        displayTemples(templeList);
   };
 
 /* reset Function */
