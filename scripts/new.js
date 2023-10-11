@@ -1,7 +1,7 @@
 /* W05: Programming Tasks */
 
 /* Declare and initialize global variables */
-const templesElement = document.getElementsByTagName("div");
+const templesElement = document.getElementById("div");
 let templeList = [];
 
 /* async displayTemples Function */
@@ -18,7 +18,6 @@ const displayTemples = (temples) =>
         article.appendChild(h3);
         templesElement.appendChild(article);
      
-        
         
     });
 }

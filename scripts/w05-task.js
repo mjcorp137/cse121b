@@ -1,7 +1,7 @@
 /* W05: Programming Tasks */
 
 /* Declare and initialize global variables */
-const templesElement = getElementId("div");
+const templesElement = document.getElementById('temples');
 
 var templeList = [];
 
