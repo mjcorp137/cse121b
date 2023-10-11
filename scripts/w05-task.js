@@ -36,12 +36,40 @@ const getTemples = async () => {
 /* reset Function */
 const reset = () => {
     document.querySelector("#temples").innerHTML = "";
+    
   };
 
 /* sortBy Function */
+function sortBy (temples) {
+    
+    reset();
 
+    let filter = document.querySelector("#sortBy").value;
+    switch(filter){
+        case "utah":
+            const utahTemples = temples.filter((temple) =>
+                temple.location.toLowerCase().includes('utah')
+            );
+            
+            displayTemples(utahTemples);
+            //displayTemples(temples.filter(temple => temple.location.match("Utah") == "Utah"));
+            break;
+        case "notutah":
+            const noUtahTemples = temples.filter((temple) =>
+                temple.location.toLowerCase().includes ('nigeria')
+            );
+            
+            displayTemples(noUtahTemples);
+        case "older":
+            displayTemples(temples.filter(temple => temple.dedicated))
+            break;
+        case "all":
+            getTemples(); 
+            break;
+    }   
+}
 
-
+document.querySelector("#sortBy").addEventListener("change", () => { sortBy(templeList) });
 getTemples();
 
 /* Event Listener */

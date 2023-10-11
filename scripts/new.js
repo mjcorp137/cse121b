@@ -52,6 +52,9 @@ function sortby (temples) {
             break;
         case "older":
             displayTemples(temples.filter(temple => temple.dedicated))
+            break;
+        case "all":
+            getTemples(); 
 
     }
 
@@ -59,6 +62,6 @@ function sortby (temples) {
 }
 
 
-getTemples();
 
+sortby (temples)
 /* Event Listener */
